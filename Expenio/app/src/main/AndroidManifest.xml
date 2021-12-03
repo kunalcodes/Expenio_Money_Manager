@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Expenio">
         <activity
-            android:name=".MainActivity"
+            android:name=".OnBoardingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
