@@ -1,98 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F7EEFC"
-    tools:context=".OnBoardingActivity">
+    tools:context=".views.OnBoardingActivity">
 
-
-    <ImageView
-        android:id="@+id/ivOnBoardingLogo"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:scaleType="fitXY"
-        app:layout_constraintVertical_weight="1"
-        android:background="@drawable/ic_expenio_on_boarding_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="-50dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivOnBoardingLogo"
-        app:layout_constraintVertical_weight="1"
-        tools:layout_editor_absoluteX="40dp" />
 
-    <TextView
-        android:id="@+id/tvOnBoardingText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Expenio"
-        android:textSize="32sp"
-        android:layout_marginTop="20dp"
-        android:textAllCaps="true"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:fontFamily="@font/helvetica_neue_lt_light_extended"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view" />
+        <ImageView
+            android:id="@+id/ivOnBoardingLogo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_expenio_on_boarding_logo"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1" />
 
-    <Button
-        android:id="@+id/btnOnBoardingLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_button_bg"
-        android:fontFamily="@font/inter_light"
-        android:text="Login"
-        android:layout_marginTop="20dp"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvOnBoardingText" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="-50dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivOnBoardingLogo"
+            app:layout_constraintVertical_weight="1"
+            tools:layout_editor_absoluteX="40dp" />
 
-    <Button
-        android:id="@+id/btnOnBoardingSignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_button_bg"
-        android:fontFamily="@font/inter_light"
-        android:text="Get Started"
-        android:layout_marginTop="20dp"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnOnBoardingLogin" />
+        <TextView
+            android:id="@+id/tvOnBoardingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/helvetica_neue_lt_light_extended"
+            android:text="Expenio"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_round_corner"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivOnBoardingLogo" />
+        <Button
+            android:id="@+id/btnOnBoardingLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_button_bg"
+            android:fontFamily="@font/inter_light"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvOnBoardingText" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_round_corner_white"
-        android:rotation="180"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/btnOnBoardingSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_button_bg"
+            android:fontFamily="@font/inter_light"
+            android:text="Get Started"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnOnBoardingLogin" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_round_corner"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_round_corner_white"
+            android:rotation="180"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@+id/view"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
