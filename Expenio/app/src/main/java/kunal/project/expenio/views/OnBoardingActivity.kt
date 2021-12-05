@@ -5,15 +5,30 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_on_boarding.*
 import kunal.project.expenio.R
+import kunal.project.expenio.utils.PreferenceHelper
 
 class OnBoardingActivity : AppCompatActivity() {
 
-    lateinit var myIntent : Intent
+    lateinit var myIntent: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_on_boarding)
+        checkLoginStatus()
         setClicklistenersOnViews()
+    }
+
+    private fun checkLoginStatus() {
+        val token = PreferenceHelper.getStringFromPreference(this@OnBoardingActivity, "token")
+        if (token != null) {
+            if (token.isNotEmpty()) {
+                val intent = Intent(this@OnBoardingActivity, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                finish()
+            }
+        }
     }
 
     private fun setClicklistenersOnViews() {

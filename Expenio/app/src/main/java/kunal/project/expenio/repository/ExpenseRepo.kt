@@ -37,7 +37,6 @@ class ExpenseRepo @Inject constructor(val expenseDAO: ExpenseDAO, val api: Money
             val response = api.signup(signupRequestModel)
             responseHandler.handleSuccess(response)
         } catch (e: Exception) {
-            Log.e("Kunal", "signup: $e", )
             responseHandler.handleException(e)
         }
     }
@@ -52,7 +51,7 @@ class ExpenseRepo @Inject constructor(val expenseDAO: ExpenseDAO, val api: Money
     fun createTask(createExpenseRequestModel : CreateExpenseRequestModel){
         CoroutineScope(Dispatchers.IO).launch {
             val response = api.createExpense(token!!, createExpenseRequestModel)
-            val newTask = Expense(response.title!!, response.description!!)
+            val newTask = Expense(response.title!!, response.description!!, 0)
             expenseDAO.addTask(newTask)
         }
     }
@@ -61,7 +60,7 @@ class ExpenseRepo @Inject constructor(val expenseDAO: ExpenseDAO, val api: Money
 
         val listOfTasks = ArrayList<Expense>()
         response.forEach {
-            val newTask = Expense(it.title, it.description)
+            val newTask = Expense(it.title, it.description, 0)
             listOfTasks.add(newTask)
         }
         expenseDAO.deleteAll()

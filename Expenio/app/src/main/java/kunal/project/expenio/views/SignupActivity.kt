@@ -58,7 +58,6 @@ class SignupActivity : AppCompatActivity() {
     }
 
     private fun signUpUser(response: Resource<SignupResponseModel>?) {
-        longToast(response?.data?.token.toString())
         PreferenceHelper.writeStringToPreference(this@SignupActivity, "token", response!!.data!!.token)
         PreferenceHelper.writeStringToPreference(this@SignupActivity, "email", response!!.data!!.user!!.email)
         val intent = Intent(this@SignupActivity, MainActivity::class.java)

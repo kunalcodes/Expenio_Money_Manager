@@ -10,6 +10,8 @@ data class Expense(
     var title: String,
     @ColumnInfo(name = "desc")
     var desc: String,
+    @ColumnInfo(name = "amount")
+    var amount: Int,
     @PrimaryKey
     @ColumnInfo(name = "id")
     var id: Int? = null

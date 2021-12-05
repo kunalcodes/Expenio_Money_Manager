@@ -57,7 +57,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser(response: Resource<LoginResponse>?) {
-        longToast(response?.data?.token.toString())
         PreferenceHelper.writeStringToPreference(this@LoginActivity, "token", response!!.data!!.token)
         PreferenceHelper.writeStringToPreference(this@LoginActivity, "email", response!!.data!!.user.email)
         val intent = Intent(this@LoginActivity, MainActivity::class.java)
