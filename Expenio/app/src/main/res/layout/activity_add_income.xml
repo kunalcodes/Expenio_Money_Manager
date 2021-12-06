@@ -28,7 +28,7 @@
             android:textSize="24sp" />
 
         <ImageButton
-            android:id="@+id/tvAddIncomeBack"
+            android:id="@+id/btnAddIncomeBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

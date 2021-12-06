@@ -59,6 +59,9 @@ class AddIncomeActivity : AppCompatActivity() {
                 finish()
             }
         }
+        btnAddIncomeBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun isTitleValid(): Boolean {
