@@ -20,7 +20,7 @@ data class Expense(
     var category: String,
     @PrimaryKey
     @ColumnInfo(name = "id")
-    var id: String? = null
+    var id: String
 ) {
 
 }

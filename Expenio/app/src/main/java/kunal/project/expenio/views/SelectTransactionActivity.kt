@@ -17,12 +17,12 @@ class SelectTransactionActivity : AppCompatActivity() {
 
     private fun setClicklistenersOnViews() {
         cvSelectTransactionIncome.setOnClickListener {
-            val intent = Intent(this@SelectTransactionActivity, MainActivity::class.java)
+            val intent = Intent(this@SelectTransactionActivity, AddIncomeActivity::class.java)
             startActivity(intent)
             finish()
         }
         cvSelectTransactionExpense.setOnClickListener {
-            val intent = Intent(this@SelectTransactionActivity, MainActivity::class.java)
+            val intent = Intent(this@SelectTransactionActivity, AddIncomeActivity::class.java)
             startActivity(intent)
             finish()
         }

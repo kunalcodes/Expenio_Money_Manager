@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Expenio"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".views.AddIncomeActivity"
+            android:exported="true" />
+        <activity
             android:name=".views.SelectTransactionActivity"
             android:exported="true" />
         <activity

@@ -59,12 +59,12 @@ class ExpenseRepo @Inject constructor(val expenseDAO: ExpenseDAO, val api: Money
         expenseDAO.addAllTransactionsToDB(listOfTransactions)
     }
 
-    fun createTask(token: String, createExpenseRequestModel : CreateExpenseRequestModel){
+    fun addNewTransaction(token: String, createExpenseRequestModel : CreateExpenseRequestModel){
         CoroutineScope(Dispatchers.IO).launch {
             val response = api.addTransactionToAPI(token, createExpenseRequestModel)
             val date = response.createdAt
-            val desc = response.description!!.split("$#*#$")
-            val newTransaction = Expense(response.title!!, desc[0], response.status!!, date!!, desc[1], desc[2], response.id)
+            val desc = response.description!!.split("*#*#*")
+            val newTransaction = Expense(response.title!!, desc[0], response.status!!, date!!, desc[1], desc[2], response.id!!)
             expenseDAO.addTransactionToDB(newTransaction)
         }
     }

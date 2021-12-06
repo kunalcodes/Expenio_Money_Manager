@@ -12,6 +12,7 @@ import kunal.project.expenio.models.remote.responses.SignupResponseModel
 import kunal.project.expenio.repository.ExpenseRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kunal.project.expenio.models.local.Expense
 import javax.inject.Inject
 
 @HiltViewModel
@@ -33,27 +34,24 @@ class MoneyViewModel @Inject constructor(val repo: ExpenseRepo) : ViewModel() {
         }
     }
 
-    fun getTasksFromAPI(){
-        repo.getRemoteTasks()
+    fun addNewTransaction(token : String, createExpenseRequestModel: CreateExpenseRequestModel){
+        repo.addNewTransaction(token, createExpenseRequestModel)
     }
 
-    fun createNewTask(createExpenseRequestModel: CreateExpenseRequestModel){
-        repo.createTask(createExpenseRequestModel)
+    fun getAllTransactions(): LiveData<List<Expense>> {
+        return repo.getAllTransactions()
     }
-//
-//    fun addTask(task: Task){
-//        repo.addTaskToRoom(task)
-//    }
-//
-//    fun getTasksFromDB(): LiveData<List<Task>> {
-//        return repo.getAllTasks()
-//    }
-//
+
 //    fun updateTask(task: Task){
 //        repo.updateTask(task)
 //    }
-//
-//    fun deleteTask(task: Task){
-//        repo.deleteTask(task)
+
+    fun deleteTransaction(token: String, expense: Expense){
+        repo.deleteTransaction(token, expense)
+    }
+
+//    fun getTasksFromAPI(){
+//        repo.getRemoteTasks()
 //    }
+
 }
