@@ -1,6 +1,7 @@
 package kunal.project.expenio.views
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -11,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_on_boarding.*
 import kunal.project.expenio.R
 import kunal.project.expenio.models.local.Expense
-import kunal.project.expenio.utils.MoneyAdapter
+import kunal.project.expenio.utils.MoneyHomeAdapter
 import kunal.project.expenio.utils.PreferenceHelper
 import kunal.project.expenio.viewmodels.MoneyViewModel
 
@@ -20,9 +21,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var userName : String
     private lateinit var token : String
-    private lateinit var adapter : MoneyAdapter
+    private lateinit var adapter : MoneyHomeAdapter
     private var list = ArrayList<Expense>()
     private val viewModel : MoneyViewModel by viewModels()
+    private var totalIncome = 0
+    private var totalExpense = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,10 +36,31 @@ class MainActivity : AppCompatActivity() {
         setAdapter()
         viewModel.getAllTransactions().observe(this, Observer {
             list.clear()
-            it.forEach {
-                list.add(it)
+            if (it.size <=10){
+                it.forEach {
+                    list.add(it)
+                }
+            } else {
+                for (i in (it.size)-10 until it.size){
+                    list.add(it[i])
+                }
             }
+            list.reverse()
             adapter.notifyDataSetChanged()
+        })
+        viewModel.getTotalIncome().observe(this, Observer {
+            it?.let {
+                totalIncome = it
+                val balance = totalIncome - totalExpense
+                tvHomeTotalBalance.text = "₹$balance"
+            }
+        })
+        viewModel.getTotalExpenses().observe(this, Observer {
+            it?.let {
+                totalExpense = it
+                val balance = totalIncome - totalExpense
+                tvHomeTotalBalance.text = "₹$balance"
+            }
         })
         setClicklistenersOnViews()
     }
@@ -50,7 +74,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setAdapter() {
-        adapter = MoneyAdapter(list)
+        adapter = MoneyHomeAdapter(list)
         val layoutManager = LinearLayoutManager(this)
         recyclerViewHome.adapter = adapter
         recyclerViewHome.layoutManager = layoutManager
@@ -58,7 +82,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setClicklistenersOnViews() {
         tvHomeUser.text = userName
-        tvHomeTotalBalance.text = "₹25,000"
         btnHomeAddTransaction.setOnClickListener {
             val intent = Intent(this@MainActivity, SelectTransactionActivity::class.java)
             startActivity(intent)

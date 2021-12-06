@@ -81,4 +81,12 @@ class ExpenseRepo @Inject constructor(val expenseDAO: ExpenseDAO, val api: Money
             expenseDAO.deleteTransactionFromDB(expense)
         }
     }
+
+    fun getTotalIncome(): LiveData<Int> {
+        return expenseDAO.getTotalIncome()
+    }
+
+    fun getTotalExpenses(): LiveData<Int> {
+        return expenseDAO.getTotalExpenses()
+    }
 }

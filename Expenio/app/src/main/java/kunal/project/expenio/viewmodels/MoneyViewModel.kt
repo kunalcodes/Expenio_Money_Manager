@@ -54,4 +54,12 @@ class MoneyViewModel @Inject constructor(val repo: ExpenseRepo) : ViewModel() {
         repo.getAllTransactionsFromAPI(token)
     }
 
+
+    fun getTotalIncome(): LiveData<Int> {
+        return repo.getTotalIncome()
+    }
+
+    fun getTotalExpenses(): LiveData<Int> {
+        return repo.getTotalExpenses()
+    }
 }

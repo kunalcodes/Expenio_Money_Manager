@@ -25,4 +25,10 @@ interface ExpenseDAO {
     @Query("delete from expenses")
     fun deleteAllTransactionsFromDB()
 
+    @Query("select sum(amount) from expenses where type = 'income'")
+    fun getTotalIncome() : LiveData<Int>
+
+    @Query("select sum(amount) from expenses where type = 'expense'")
+    fun getTotalExpenses() : LiveData<Int>
+
 }

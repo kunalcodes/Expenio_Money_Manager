@@ -12,7 +12,7 @@ import kunal.project.expenio.models.local.Expense
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class MoneyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class MoneyHomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     val mTvTransactionAmount: TextView = itemView.findViewById(R.id.tvTransactionAmount)
     val mTvTransactionTitle: TextView = itemView.findViewById(R.id.tvTransactionTitle)
