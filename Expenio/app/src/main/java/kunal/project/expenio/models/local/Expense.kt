@@ -12,9 +12,15 @@ data class Expense(
     var desc: String,
     @ColumnInfo(name = "amount")
     var amount: Int,
+    @ColumnInfo(name = "date")
+    var date: String,
+    @ColumnInfo(name = "type")
+    var type: String,
+    @ColumnInfo(name = "category")
+    var category: String,
     @PrimaryKey
     @ColumnInfo(name = "id")
-    var id: Int? = null
+    var id: String? = null
 ) {
 
 }

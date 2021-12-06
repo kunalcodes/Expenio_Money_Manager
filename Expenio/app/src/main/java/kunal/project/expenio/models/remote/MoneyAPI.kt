@@ -12,7 +12,6 @@ import retrofit2.http.*
 
 interface MoneyAPI {
 
-    //@Headers("Accept: application/json")
     @POST("users/login")
     suspend fun login(
         @Body loginRequest: LoginRequestModel
@@ -26,14 +25,19 @@ interface MoneyAPI {
 
 
     @POST("tasks")
-    suspend fun createExpense(
+    suspend fun addTransactionToAPI(
         @Header("Authorization") token : String,
         @Body createExpenseRequestModel: CreateExpenseRequestModel
     ): CreateExpenseResponseModel
 
     @GET("tasks")
-    suspend fun getExpenseFromAPI(
+    suspend fun getAllTransactionsFromAPI(
         @Header("Authorization") token : String
     ) : GetExpenseResponseModel
 
+    @DELETE("tasks/{id}")
+    suspend fun deleteTransactionFromAPI(
+        @Header("Authorization") token : String,
+        @Path("id") id : String
+    )
 }

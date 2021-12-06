@@ -8,21 +8,21 @@ import kunal.project.expenio.models.local.Expense
 interface ExpenseDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addTasks(tasks: ArrayList<Expense>)
+    fun addAllTransactionsToDB(expenseList: ArrayList<Expense>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addTask(expense: Expense)
+    fun addTransactionToDB(expense: Expense)
 
     @Query("select * from expenses")
-    fun getTasks() : LiveData<List<Expense>>
+    fun getAllTransactionsFromDB() : LiveData<List<Expense>>
 
     @Delete
-    fun delete(task: Expense)
+    fun deleteTransactionFromDB(expense: Expense)
 
     @Update
-    fun updateTask(task: Expense)
+    fun updateTransactionInDB(task: Expense)
 
     @Query("delete from expenses")
-    fun deleteAll()
+    fun deleteAllTransactionsFromDB()
 
 }

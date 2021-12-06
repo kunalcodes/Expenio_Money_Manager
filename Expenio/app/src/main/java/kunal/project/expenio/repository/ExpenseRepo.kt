@@ -21,7 +21,6 @@ import javax.inject.Inject
 class ExpenseRepo @Inject constructor(val expenseDAO: ExpenseDAO, val api: MoneyAPI) {
 
     private val responseHandler = ResponseHandler()
-    private var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRjYzk1NGYwNDg1NDBiNWMxNDkzNzciLCJpYXQiOjE2MzI0MjU0ODJ9.ibPc3YVmAwXyNUKImsB-p_aTtrXwymJG6VL3Z0QuNJ8"
 
     suspend fun login(loginRequestModel: LoginRequestModel): Resource<LoginResponse> {
         return try {
@@ -41,51 +40,45 @@ class ExpenseRepo @Inject constructor(val expenseDAO: ExpenseDAO, val api: Money
         }
     }
 
-    fun getRemoteTasks() {
+    fun getAllTransactionsFromAPI(token : String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val response = api.getExpenseFromAPI(token!!)
-            saveToDB(response)
+            val response = api.getAllTransactionsFromAPI(token)
+            saveTransactionsToDB(response)
         }
     }
 
-    fun createTask(createExpenseRequestModel : CreateExpenseRequestModel){
-        CoroutineScope(Dispatchers.IO).launch {
-            val response = api.createExpense(token!!, createExpenseRequestModel)
-            val newTask = Expense(response.title!!, response.description!!, 0)
-            expenseDAO.addTask(newTask)
-        }
-    }
-
-    private fun saveToDB(response: GetExpenseResponseModel) {
-
-        val listOfTasks = ArrayList<Expense>()
+    private fun saveTransactionsToDB(response: GetExpenseResponseModel) {
+        val listOfTransactions = ArrayList<Expense>()
         response.forEach {
-            val newTask = Expense(it.title, it.description, 0)
-            listOfTasks.add(newTask)
+            val date = it.createdAt
+            val desc = it.description.split("$#*#$")
+            val newTransaction = Expense(it.title, desc[0], it.status, date, desc[1], desc[2], it._id)
+            listOfTransactions.add(newTransaction)
         }
-        expenseDAO.deleteAll()
-        expenseDAO.addTasks(listOfTasks)
+        expenseDAO.deleteAllTransactionsFromDB()
+        expenseDAO.addAllTransactionsToDB(listOfTransactions)
     }
 
-    fun addTaskToRoom(task: Expense) {
+    fun createTask(token: String, createExpenseRequestModel : CreateExpenseRequestModel){
         CoroutineScope(Dispatchers.IO).launch {
-            expenseDAO.addTask(task)
-        }
-    }
-
-    fun getAllTasks(): LiveData<List<Expense>> {
-        return expenseDAO.getTasks()
-    }
-
-    fun updateTask(task: Expense) {
-        CoroutineScope(Dispatchers.IO).launch {
-            expenseDAO.updateTask(task)
+            val response = api.addTransactionToAPI(token, createExpenseRequestModel)
+            val date = response.createdAt
+            val desc = response.description!!.split("$#*#$")
+            val newTransaction = Expense(response.title!!, desc[0], response.status!!, date!!, desc[1], desc[2], response.id)
+            expenseDAO.addTransactionToDB(newTransaction)
         }
     }
 
-    fun deleteTask(task: Expense) {
+
+    fun getAllTransactions(): LiveData<List<Expense>> {
+        return expenseDAO.getAllTransactionsFromDB()
+    }
+
+
+    fun deleteTransaction(token: String, expense: Expense) {
         CoroutineScope(Dispatchers.IO).launch {
-            expenseDAO.delete(task)
+            api.deleteTransactionFromAPI(token, expense.id!!)
+            expenseDAO.deleteTransactionFromDB(expense)
         }
     }
 }

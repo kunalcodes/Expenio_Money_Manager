@@ -1,5 +1,6 @@
 package kunal.project.expenio.views
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,5 +25,9 @@ class MainActivity : AppCompatActivity() {
     private fun setClicklistenersOnViews() {
         tvHomeUser.text = userName
         tvHomeTotalBalance.text = "₹25,000"
+        btnHomeAddTransaction.setOnClickListener {
+            val intent = Intent(this@MainActivity, SelectTransactionActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

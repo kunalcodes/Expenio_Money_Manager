@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="10"
+    android:orientation="vertical"
+    tools:context=".views.SelectTransactionActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvSelectTransactionIncome"
+        android:layout_width="match_parent"
+        android:layout_weight="5"
+        app:cardCornerRadius="16dp"
+        android:layout_margin="16dp"
+        android:backgroundTint="#99007AFF"
+        android:layout_height="0dp">
+
+        <TextView
+            android:text="Add Income"
+            android:layout_gravity="center"
+            android:textSize="34sp"
+            android:drawablePadding="-20dp"
+            android:textStyle="bold"
+            android:drawableTint="@color/white"
+            android:paddingHorizontal="32sp"
+            android:textAlignment="center"
+            android:drawableTop="@drawable/ic_income"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvSelectTransactionExpense"
+        android:layout_width="match_parent"
+        android:layout_weight="5"
+        app:cardCornerRadius="16dp"
+        android:layout_margin="16dp"
+        android:backgroundTint="#99007AFF"
+        android:layout_height="0dp">
+
+        <TextView
+            android:text="Add Expense"
+            android:layout_gravity="center"
+            android:textSize="34sp"
+            android:drawablePadding="-20dp"
+            android:textStyle="bold"
+            android:drawableTint="@color/white"
+            android:paddingHorizontal="32sp"
+            android:textAlignment="center"
+            android:drawableTop="@drawable/ic_expense"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
