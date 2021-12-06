@@ -18,14 +18,17 @@ class OnBoardingActivity : AppCompatActivity() {
         setClicklistenersOnViews()
     }
 
+    override fun onResume() {
+        super.onResume()
+        checkLoginStatus()
+    }
+
     private fun checkLoginStatus() {
         val token = PreferenceHelper.getStringFromPreference(this@OnBoardingActivity, "token")
         if (token != null) {
-            if (token.isNotEmpty()) {
+            if (token != "") {
                 val intent = Intent(this@OnBoardingActivity, MainActivity::class.java)
                 startActivity(intent)
-                finish()
-            } else {
                 finish()
             }
         }

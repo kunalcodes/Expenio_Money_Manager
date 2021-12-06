@@ -19,24 +19,40 @@
         android:textColor="#8E8E93"
         android:textSize="17sp"
         android:textStyle="bold" />
-    <TextView
-        android:id="@+id/tvHomeHeading"
+
+    <RelativeLayout
+        android:id="@+id/layoutHomeHeading"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
         android:layout_below="@+id/tvHomeUser"
-        android:layout_marginTop="4dp"
-        android:drawableEnd="@drawable/ic_user_pic"
-        android:fontFamily="@font/inter_extra_bold"
-        android:text="Home"
-        android:textColor="@color/black"
-        android:textSize="34sp" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvHomeHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/inter_extra_bold"
+            android:text="Home"
+            android:textColor="@color/black"
+            android:textSize="34sp" />
+
+        <ImageView
+            android:id="@+id/ivHomeUserImage"
+            android:layout_alignBottom="@id/tvHomeHeading"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/ic_user_pic_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvHomeTotalBalance"
-        android:layout_below="@+id/tvHomeHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutHomeHeading"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="24sp"
         app:cardCornerRadius="16dp">
@@ -67,7 +83,7 @@
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/inter_extra_bold"
                 android:lines="1"
-                android:text="$25,000"
+                android:text="₹0"
                 android:textColor="@color/white"
                 android:textSize="34sp"
                 android:textStyle="bold" />
@@ -85,52 +101,52 @@
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:layout_below="@+id/cvHomeTotalBalance"
-            android:id="@+id/tvHomeRecent"
-            android:layout_marginTop="20dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_width="wrap_content"
-            android:gravity="center"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_extra_bold"
-            android:text="Recent"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
+    <TextView
+        android:id="@+id/tvHomeRecent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cvHomeTotalBalance"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/inter_extra_bold"
+        android:gravity="center"
+        android:text="Recent"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
 
-        <TextView
-            android:layout_alignBaseline="@+id/tvHomeRecent"
-            android:id="@+id/tvHomeSeeAll"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:fontFamily="@font/inter_light"
-            android:layout_alignParentEnd="true"
-            android:text="See all"
-            android:textColor="#007AFF"
-            android:textSize="17sp"
-            android:textStyle="normal" />
+    <TextView
+        android:id="@+id/tvHomeSeeAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvHomeRecent"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/inter_light"
+        android:gravity="center"
+        android:text="See all"
+        android:textColor="#007AFF"
+        android:textSize="17sp"
+        android:textStyle="normal" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/tvHomeRecent"
         android:id="@+id/recyclerViewHome"
         android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvHomeRecent"
         android:layout_marginHorizontal="16dp"
-        android:layout_height="match_parent"/>
+        android:layout_marginTop="16dp" />
 
     <ImageButton
-        android:layout_width="70dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_plus"
         android:id="@+id/btnHomeAddTransaction"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/ic_round_btn_bg"
-        android:layout_height="70dp"/>
+        android:src="@drawable/ic_plus" />
 
 </RelativeLayout>

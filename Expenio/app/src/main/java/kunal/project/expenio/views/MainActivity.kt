@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_on_boarding.*
+import kotlinx.android.synthetic.main.activity_profile.*
 import kunal.project.expenio.R
 import kunal.project.expenio.models.local.Expense
 import kunal.project.expenio.utils.MoneyHomeAdapter
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         token = PreferenceHelper.getStringFromPreference(this@MainActivity, "token").toString()
         userName = PreferenceHelper.getStringFromPreference(this@MainActivity, "email").toString()
+        checkLogin()
         checkNewLogin()
         setAdapter()
         viewModel.getAllTransactions().observe(this, Observer {
@@ -65,6 +67,18 @@ class MainActivity : AppCompatActivity() {
         setClicklistenersOnViews()
     }
 
+    override fun onResume() {
+        super.onResume()
+        checkLogin()
+    }
+
+    private fun checkLogin() {
+        token = PreferenceHelper.getStringFromPreference(this@MainActivity, "token").toString()
+        if (token == ""){
+            finish()
+        }
+    }
+
     private fun checkNewLogin() {
         val isNewLogin = PreferenceHelper.getIntFromPreference(this@MainActivity,"newlogin")
         if (isNewLogin==1){
@@ -84,6 +98,18 @@ class MainActivity : AppCompatActivity() {
         tvHomeUser.text = userName
         btnHomeAddTransaction.setOnClickListener {
             val intent = Intent(this@MainActivity, SelectTransactionActivity::class.java)
+            startActivity(intent)
+        }
+        btnHomeMyBalance.setOnClickListener {
+            val intent = Intent(this@MainActivity, AllTransactionsActivity::class.java)
+            startActivity(intent)
+        }
+        tvHomeSeeAll.setOnClickListener {
+            val intent = Intent(this@MainActivity, AllTransactionsActivity::class.java)
+            startActivity(intent)
+        }
+        ivHomeUserImage.setOnClickListener {
+            val intent = Intent(this@MainActivity, ProfileActivity::class.java)
             startActivity(intent)
         }
     }

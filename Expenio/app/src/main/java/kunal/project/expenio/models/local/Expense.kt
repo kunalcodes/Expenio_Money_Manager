@@ -3,6 +3,7 @@ package kunal.project.expenio.models.local
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "expenses")
 data class Expense(
@@ -21,6 +22,6 @@ data class Expense(
     @PrimaryKey
     @ColumnInfo(name = "id")
     var id: String
-) {
+) : Serializable {
 
 }

@@ -75,6 +75,20 @@ class ExpenseRepo @Inject constructor(val expenseDAO: ExpenseDAO, val api: Money
     }
 
 
+    fun logout(token: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            api.logout(token)
+            expenseDAO.deleteAllTransactionsFromDB()
+        }
+    }
+
+    fun deleteUser(token: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            api.deleteUserFromAPI(token)
+            expenseDAO.deleteAllTransactionsFromDB()
+        }
+    }
+
     fun deleteTransaction(token: String, expense: Expense) {
         CoroutineScope(Dispatchers.IO).launch {
             api.deleteTransactionFromAPI(token, expense.id!!)

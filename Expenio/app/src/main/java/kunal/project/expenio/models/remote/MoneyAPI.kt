@@ -40,4 +40,14 @@ interface MoneyAPI {
         @Header("Authorization") token : String,
         @Path("id") id : String
     )
+
+    @POST("users/logout")
+    suspend fun logout(
+        @Header("Authorization") token : String,
+    )
+
+    @DELETE("users/me")
+    suspend fun deleteUserFromAPI(
+        @Header("Authorization") token : String,
+    )
 }

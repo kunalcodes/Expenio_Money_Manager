@@ -38,6 +38,14 @@ class MoneyViewModel @Inject constructor(val repo: ExpenseRepo) : ViewModel() {
         repo.addNewTransaction(token, createExpenseRequestModel)
     }
 
+    fun logout(token : String){
+        repo.logout(token)
+    }
+
+    fun deleteUser(token : String){
+        repo.deleteUser(token)
+    }
+
     fun getAllTransactions(): LiveData<List<Expense>> {
         return repo.getAllTransactions()
     }

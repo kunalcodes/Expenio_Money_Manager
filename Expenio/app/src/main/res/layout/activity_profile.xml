@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".views.ProfileActivity">
+
+    <TextView
+        android:id="@+id/tvProfileBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32sp"
+        android:text="Cancel"
+        android:textColor="#007AFF"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/tvProfileHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvProfileBack"
+        android:layout_marginHorizontal="16dp"
+        android:fontFamily="@font/inter_extra_bold"
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textSize="34sp" />
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvProfileHeading"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/ic_user_pic" />
+
+        <TextView
+            android:id="@+id/tvProfileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/inter_regular"
+            android:gravity="center"
+            android:paddingHorizontal="16dp"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvProfileBalance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/inter_regular"
+            android:gravity="center"
+            android:paddingHorizontal="16dp"
+            android:text="₹0"
+            android:textColor="@color/black"
+            android:textSize="42dp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/tvProfileBalanceDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/inter_medium"
+            android:paddingHorizontal="16dp"
+            android:text="Current Balance"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnProfileSignout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/ic_button_bg"
+            android:fontFamily="@font/inter_light"
+            android:text="Sign out"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+
+        <Button
+            android:id="@+id/btnProfileDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/ic_button_bg_red"
+            android:fontFamily="@font/inter_light"
+            android:text="Delete Profile"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+</RelativeLayout>

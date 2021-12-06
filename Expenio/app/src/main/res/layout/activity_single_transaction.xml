@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".views.SingleTransactionActivity">
+
+    <ImageButton
+        android:id="@+id/btnSingleTransactionBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16sp"
+        android:background="@drawable/ic_close" />
+
+    <TextView
+        android:id="@+id/tvSingleTransactionHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSingleTransactionBack"
+        android:layout_marginHorizontal="16dp"
+        android:fontFamily="@font/inter_extra_bold"
+        android:text="My Transaction"
+        android:textColor="@color/black"
+        android:textSize="34sp" />
+
+    <ScrollView
+        android:layout_below="@id/tvSingleTransactionHeading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivSingleTransactionCategory"
+                android:layout_width="160dp"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center"
+                android:layout_height="160dp"/>
+
+            <TextView
+                android:id="@+id/tvSingleTransactionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/inter_medium"
+                android:paddingHorizontal="16dp"
+                android:text="Title"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvSingleTransactionDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/inter_medium"
+                android:paddingHorizontal="16dp"
+                android:text="Date"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/tvSingleTransactionAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center"
+                android:layout_marginVertical="8dp"
+                android:fontFamily="@font/inter_semibold"
+                android:paddingHorizontal="16dp"
+                android:textStyle="bold"
+                android:text="$2000"
+                android:textColor="@color/black"
+                android:textSize="34dp" />
+
+            <TextView
+                android:id="@+id/tvSingleTransactionDescription"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:textAlignment="center"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/inter_medium"
+                android:paddingHorizontal="16dp"
+                android:text="Description"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnSingleTransactionDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/ic_button_bg"
+                android:fontFamily="@font/inter_light"
+                android:text="Delete"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
