@@ -50,8 +50,8 @@ class MoneyViewModel @Inject constructor(val repo: ExpenseRepo) : ViewModel() {
         repo.deleteTransaction(token, expense)
     }
 
-//    fun getTasksFromAPI(){
-//        repo.getRemoteTasks()
-//    }
+    fun refreshTransactionsFromAPI(token: String){
+        repo.getAllTransactionsFromAPI(token)
+    }
 
 }

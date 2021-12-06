@@ -28,6 +28,6 @@ object PreferenceHelper {
     }
 
     fun getIntFromPreference(context: Context, key: String?): Int {
-        return getSharedPreference(context).getInt(key, 0)
+        return getSharedPreference(context).getInt(key, 1)
     }
 }

@@ -50,8 +50,8 @@ class ExpenseRepo @Inject constructor(val expenseDAO: ExpenseDAO, val api: Money
     private fun saveTransactionsToDB(response: GetExpenseResponseModel) {
         val listOfTransactions = ArrayList<Expense>()
         response.forEach {
-            val date = it.createdAt
-            val desc = it.description.split("$#*#$")
+            val date = it.createdAt.substring(0, 10)
+            val desc = it.description.split("*#*#*")
             val newTransaction = Expense(it.title, desc[0], it.status, date, desc[1], desc[2], it._id)
             listOfTransactions.add(newTransaction)
         }
@@ -62,7 +62,7 @@ class ExpenseRepo @Inject constructor(val expenseDAO: ExpenseDAO, val api: Money
     fun addNewTransaction(token: String, createExpenseRequestModel : CreateExpenseRequestModel){
         CoroutineScope(Dispatchers.IO).launch {
             val response = api.addTransactionToAPI(token, createExpenseRequestModel)
-            val date = response.createdAt
+            val date = response.createdAt!!.substring(0, 10)
             val desc = response.description!!.split("*#*#*")
             val newTransaction = Expense(response.title!!, desc[0], response.status!!, date!!, desc[1], desc[2], response.id!!)
             expenseDAO.addTransactionToDB(newTransaction)

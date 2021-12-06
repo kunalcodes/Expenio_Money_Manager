@@ -60,6 +60,7 @@ class SignupActivity : AppCompatActivity() {
     private fun signUpUser(response: Resource<SignupResponseModel>?) {
         PreferenceHelper.writeStringToPreference(this@SignupActivity, "token", response!!.data!!.token)
         PreferenceHelper.writeStringToPreference(this@SignupActivity, "email", response!!.data!!.user!!.email)
+        PreferenceHelper.writeIntToPreference(this@SignupActivity, "newlogin", 1)
         val intent = Intent(this@SignupActivity, MainActivity::class.java)
         startActivity(intent)
         finish()

@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         token = PreferenceHelper.getStringFromPreference(this@MainActivity, "token").toString()
         userName = PreferenceHelper.getStringFromPreference(this@MainActivity, "email").toString()
+        checkNewLogin()
         setAdapter()
         viewModel.getAllTransactions().observe(this, Observer {
             list.clear()
@@ -38,6 +39,14 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         })
         setClicklistenersOnViews()
+    }
+
+    private fun checkNewLogin() {
+        val isNewLogin = PreferenceHelper.getIntFromPreference(this@MainActivity,"newlogin")
+        if (isNewLogin==1){
+            viewModel.refreshTransactionsFromAPI(token)
+        }
+        PreferenceHelper.writeIntToPreference(this@MainActivity, "newlogin", 0)
     }
 
     private fun setAdapter() {

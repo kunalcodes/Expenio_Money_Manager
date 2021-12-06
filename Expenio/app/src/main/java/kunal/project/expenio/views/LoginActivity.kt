@@ -59,6 +59,7 @@ class LoginActivity : AppCompatActivity() {
     private fun loginUser(response: Resource<LoginResponse>?) {
         PreferenceHelper.writeStringToPreference(this@LoginActivity, "token", response!!.data!!.token)
         PreferenceHelper.writeStringToPreference(this@LoginActivity, "email", response!!.data!!.user.email)
+        PreferenceHelper.writeIntToPreference(this@LoginActivity, "newlogin", 1)
         val intent = Intent(this@LoginActivity, MainActivity::class.java)
         startActivity(intent)
         finish()

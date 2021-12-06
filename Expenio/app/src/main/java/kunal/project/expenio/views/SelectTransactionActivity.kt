@@ -22,7 +22,7 @@ class SelectTransactionActivity : AppCompatActivity() {
             finish()
         }
         cvSelectTransactionExpense.setOnClickListener {
-            val intent = Intent(this@SelectTransactionActivity, AddIncomeActivity::class.java)
+            val intent = Intent(this@SelectTransactionActivity, AddExpenseActivity::class.java)
             startActivity(intent)
             finish()
         }
