@@ -7,9 +7,9 @@
     <application
         android:name=".MoneyApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/expenio_app_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/expenio_app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Expenio"
         android:usesCleartextTraffic="true">

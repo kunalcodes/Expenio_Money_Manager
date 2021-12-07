@@ -96,7 +96,7 @@
                 android:background="@drawable/ic_et_grey_background_blue_stroke"
                 android:fontFamily="@font/inter_light"
                 android:gravity="top"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="16dp"
                 android:textColor="@color/black"

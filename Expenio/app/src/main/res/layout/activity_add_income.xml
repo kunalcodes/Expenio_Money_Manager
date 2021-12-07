@@ -44,9 +44,9 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
             <TextView
@@ -92,13 +92,13 @@
                 android:id="@+id/etAddIncomeDescription"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:gravity="top"
                 android:layout_marginHorizontal="16dp"
                 android:background="@drawable/ic_et_grey_background_blue_stroke"
                 android:fontFamily="@font/inter_light"
-                android:inputType="text"
-                android:paddingVertical="16dp"
+                android:gravity="top"
+                android:inputType="textMultiLine"
                 android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
