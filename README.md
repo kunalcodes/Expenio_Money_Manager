@@ -14,8 +14,13 @@ Expenio is an expense tracking, money management app for better financial planni
 * Detailed list of all the previous transactions.
 * Balance info.
 * Review and manage transactions.
+<br/>
 
 
+# Get it on playstore:
+
+
+<a href="https://github.com/kunalcodes/Expenio_Money_Manager" title="Playstore" target="_blank"><img height="120" width="240" src="https://data.ibtimes.sg/en/full/12247/google-play-store-8-1-73-apk.png"></a>
 
 <!-- 
 # Links 
