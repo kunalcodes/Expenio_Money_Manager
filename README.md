@@ -140,4 +140,4 @@ Open Android Studio. Go to File > New > Project From Version Control. Copy the l
 * [Kotlin](https://kotlinlang.org/)
 * [Retrofit](https://github.com/square/retrofit)
 * [Anko Toast](https://github.com/Kotlin/anko)
-* [UI Design](https://www.figma.com/file/aYX52ysnR7xLkNxKL2jf6x/Expenio---Personal-Finance-UI-Kit-(Community))
+* [UI Design Reference](https://www.figma.com/file/aYX52ysnR7xLkNxKL2jf6x/Expenio---Personal-Finance-UI-Kit-(Community))
